@@ -1,0 +1,48 @@
+
+.formulario{
+	background: rgba(0,0,0,.8);
+	
+}
+.cabecera{
+	
+	color: red;
+}
+.card-headers{
+	 background: #AED6F1;
+}
+
+/* .circulo{ */
+	
+/*  	background: #D6E9DB;  */
+/* 	width: 60px; */
+/* 	height: 60px; */
+/* 	border-radius:50%; */
+/* } */
+.img-circulo{
+	
+	width: 60px;
+	height: 60px;
+	border-radius:50%;
+	padding-right:  20px;
+/* 	left: 10px; */
+/* 	z-index: 1; */
+}
+
+.pading{
+	padding-left: 50px;
+	padding-right: 60px;
+	
+	
+}
+.texto{
+	color: #D6E9DB;
+	text-decoration: none; 
+	font-size: 15px; 
+	
+}
+.texto:hover{
+	color: #1B8F43; 
+	text-decoration: none;
+	font-size: 16px; 
+	
+}
