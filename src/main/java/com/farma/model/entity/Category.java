@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="categories")
@@ -15,24 +19,28 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id ; 
 	
+	@NotEmpty
 	@Column(name="name")
 	private String name; 
 	
+	@Lob
+	@NotEmpty
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name="description")
 	private String description;
 	
-	@Column(name="url_img")
-	private String urlImg; 
+//	@Column(name="url_img")
+//	private String urlImg; 
 	
 	public Category() {
 	}
 
-	public Category(Long id, String name, String description, String urlImg) {
+	
+	public Category(Long id, String name, String description) {
 		
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.urlImg = urlImg;
 	}
 
 	public Long getId() {
@@ -59,13 +67,7 @@ public class Category {
 		this.description = description;
 	}
 
-	public String getUrlImg() {
-		return urlImg;
-	}
-
-	public void setUrlImg(String urlImg) {
-		this.urlImg = urlImg;
-	} 
+	 
 	
 	
 	
