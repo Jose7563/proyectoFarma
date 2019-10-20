@@ -7,9 +7,41 @@
 <body>
 	<header th:replace="layout/layout :: header"></header>
 
-	<h1>Listado categoria</h1>
+
+	<div class="container py-4">
+		<div class="card  border border-primary bg-light ">
+
+			<div class="card-header">
+				<h3 class="text-center" th:text="${titulo}"></h3>
+				
+			</div>
+			<div class="card-body ">
+				<a th:href="@{/categories/new}" class="btn btn-primary">Nuevo</a>
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+					</thead>
+					<tbody>
+						<tr th:each="category :${categories}">
+
+							<td th:text="${category.id}"></td>
+							<td th:text="${category.name}"></td>
+							<td th:text="${category.description}"></td>
+							<td><a th:href="@{'/categories/edit/'+ ${category.id}}"
+								class="btn btn-success">Editar</a></td>
+							<td><a th:href="@{'/categories/delete/' + ${category.id}}"
+								class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
+	</div>
 
 	<footer th:replace="layout/layout :: footer"></footer>
 

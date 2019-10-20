@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -56,7 +57,7 @@ public class Product {
 	
 	@ManyToMany
 	@JoinTable(
-			name="provider_product",
+			name="product_provider",
 			joinColumns= {@JoinColumn(name="product_id")},
 			inverseJoinColumns= {@JoinColumn(name="provider_id")}
 			)
@@ -70,6 +71,12 @@ public class Product {
 			inverseJoinColumns= {@JoinColumn(name="order_id")}
 			)
 	private List<Order> orders;
+	
+	@PrePersist
+	public void prePersist() {
+		expiration_date = new Date();
+	}
+
 
 
 	public Long getId() {

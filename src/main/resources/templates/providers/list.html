@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" />
+<title>List proveedores</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	
+	<div class="container py-4">
+		<div class="card  border border-primary bg-light ">
+
+			<div class="card-header">
+				<h3 class="text-center" th:text="${titulo}"></h3>
+			</div>
+			<div class="card-body ">
+			<a th:href="@{/providers/new}" class="btn btn-primary">Nuevo</a>
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Ruc</th>
+							
+					</thead>
+					<tbody >
+						<tr th:each="provider :${providers}">
+							
+							<td th:text="${provider.id}"></td>
+							<td th:text="${provider.name}"></td>
+							<td th:text="${provider.email}"></td>
+							<td th:text="${provider.phone}"></td>
+							<td th:text="${provider.ruc}"></td>
+							<td>
+							  <a th:href="@{'/providers/edit/'+ ${provider.id}}" class="btn btn-success">Editar</a>
+							</td>
+							<td><a th:href="@{'/providers/delete/' + ${provider.id}}" class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>
