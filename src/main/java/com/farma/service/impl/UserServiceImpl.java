@@ -3,11 +3,12 @@ package com.farma.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.farma.model.entity.User;
 import com.farma.model.repository.UserRepository;
 import com.farma.service.UserService;
-
+@Service
 public class UserServiceImpl  implements  UserService{
 	
 	@Autowired

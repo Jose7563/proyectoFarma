@@ -30,21 +30,7 @@
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<a class="dropdown-item" th:href="@{/categories}">Listado
-									de Categoria</a> <a class="dropdown-item"
-									th:href="@{/categories/new}">Crear Categoria</a>
-							</div>
-						</div>
-					</li>
-					<li class="nav-item">
-						<div class="dropdown">
-							<a class="btn btn-light dropdown-toggle" href="#" role="button"
-								id="dropdownMenuLink" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Producto</a>
-
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/category/list}">Listado
-									de Producto</a> <a class="dropdown-item"
-									th:href="@{/category/form}">Crear Producto</a>
+									de Categoria</a>
 							</div>
 						</div>
 					</li>
@@ -56,8 +42,7 @@
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<a class="dropdown-item" th:href="@{/providers}">Listado
-									de Prodveedor</a> <a class="dropdown-item"
-									th:href="@{/category/form}">Crear Proveedor</a>
+									de Prodveedor</a>
 							</div>
 						</div>
 					</li>
@@ -65,12 +50,24 @@
 						<div class="dropdown">
 							<a class="btn btn-light dropdown-toggle" href="#" role="button"
 								id="dropdownMenuLink" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">Producto</a>
+
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/products}">Listado
+									de Producto</a> 
+							</div>
+						</div>
+					</li>
+					
+					<li class="nav-item">
+						<div class="dropdown">
+							<a class="btn btn-light dropdown-toggle" href="#" role="button"
+								id="dropdownMenuLink" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">Usuario</a>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/category/list}">Listado
-									de Usuario</a> <a class="dropdown-item" th:href="@{/category/form}">Crear
-									Usuario</a>
+								<a class="dropdown-item" th:href="@{/users}">Listado
+									de Usuario</a>
 							</div>
 						</div>
 

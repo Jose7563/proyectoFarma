@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductService{
 	public void update(Long id, Product entity) {
 		
 		Product p = getOneById(id);
-		p.setCategory(entity.getCategory());
+		p.setCategories(entity.getCategories());
 		p.setExpirationDate(entity.getExpirationDate());
 		p.setName(entity.getName());
 		p.setOrders(entity.getOrders());

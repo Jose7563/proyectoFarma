@@ -1,11 +1,14 @@
 package com.farma.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -32,16 +35,13 @@ public class Category {
 //	@Column(name="url_img")
 //	private String urlImg; 
 	
+	@ManyToMany(mappedBy = "categories")
+	private List<Product> products;
+	
 	public Category() {
 	}
 
-	
-	public Category(Long id, String name, String description) {
-		
-		this.id = id;
-		this.name = name;
-		this.description = description;
-	}
+
 
 	public Long getId() {
 		return id;
@@ -65,6 +65,16 @@ public class Category {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	 

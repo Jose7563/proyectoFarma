@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" />
+<title>List user</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	
+	<div class="container py-4">
+		<div class="card  border border-primary bg-light ">
+
+			<div class="card-header">
+				<h3 class="text-center" th:text="${titulo}"></h3>
+			</div>
+			<div class="card-body ">
+			<a th:href="@{/users/new}" class="btn btn-primary">Nuevo</a>
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							
+							
+					</thead>
+					<tbody >
+						<tr th:each="user :${users}">
+							
+							<td th:text="${user.id}"></td>
+							<td th:text="${user.name}"></td>
+							<td th:text="${user.lastName}"></td>
+							<td>
+							  <a th:href="@{'/users/edit/'+ ${user.id}}" class="btn btn-success">Editar</a>
+							</td>
+							<td><a th:href="@{'/users/delete/' + ${user.id}}" class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

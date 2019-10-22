@@ -50,11 +50,16 @@ public class Product {
 	
 	@NotNull
 	@Column(name = "unit_price")
-	private Double  uniPrice;
+	private Double  unitPrice;
 	
-	@ManyToOne
-	@JoinColumn(name="category_id")
-	private Category category;
+	@ManyToMany
+	@JoinTable(
+			name="product_category",
+			joinColumns= {@JoinColumn(name="product_id")},
+			inverseJoinColumns= {@JoinColumn(name="category_id")}
+			)
+	private List<Category> categories;
+	
 	
 	@ManyToMany
 	@JoinTable(
@@ -118,20 +123,22 @@ public class Product {
 		this.expirationDate = expirationDate;
 	}
 
-	public Double getUniPrice() {
-		return uniPrice;
+	public Double getUnitPrice() {
+		return unitPrice;
 	}
 
-	public void setUniPrice(Double uniPrice) {
-		this.uniPrice = uniPrice;
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 
-	public Category getCategory() {
-		return category;
+	
+
+	public List<Category> getCategories() {
+		return categories;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 	public List<Provider> getProviders() {
