@@ -17,11 +17,13 @@ public class ItemTicket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
 	
-	private Integer quantity;
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="product_id")
 	private Product product; 
+	
+	private Integer quantity;
+
+
 	
 	public Long getId() {
 		return id;

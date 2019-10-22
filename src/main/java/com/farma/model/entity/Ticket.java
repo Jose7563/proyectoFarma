@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="tickets")
 public class Ticket {
@@ -29,7 +31,7 @@ public class Ticket {
 	
 	
 	@Temporal(value = TemporalType.DATE)
-//	@DateTimeFormat(pattern="dd-mm-yy")
+	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name = "creat_at")
 	private Date creatAt;
 	

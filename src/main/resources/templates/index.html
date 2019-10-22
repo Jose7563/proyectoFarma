@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout :: head">
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>Index</title>
 </head>
 <body>
-<header th:replace="layout/layout :: header"></header>
- <h1> hey vamos </h1>
- 
- <footer th:replace="layout/layout :: footer"></footer>
+	<header th:replace="layout/layout :: header"></header>
+	<div class="jumbotron my-4">
+		<h1 class="display-4">Hello Farma!</h1>
+		<p class="lead">Aplicacion de Framcaia para FarmmaSac</p>
+		<hr class="my-4">
+		<p>ELaborado en Sprig BOOt</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button">Inicio</a>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

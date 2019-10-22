@@ -42,7 +42,7 @@ public class Product {
 	@Column(name = "quantity")
 	private Long quantity;
 	
-	
+	@NotNull
 	@Temporal(value = TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name = "expiration_date")

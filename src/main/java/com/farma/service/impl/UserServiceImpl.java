@@ -40,6 +40,7 @@ public class UserServiceImpl  implements  UserService{
 		User u = getOneById(id); 
 		u.setLastName(entity.getLastName());
 		u.setName(entity.getName());
+		u.setCreatAt(entity.getCreatAt());
 		u.setTickets(entity.getTickets());
 		userRespository.save(u); 
 		

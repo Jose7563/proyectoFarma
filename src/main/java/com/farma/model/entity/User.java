@@ -1,6 +1,7 @@
 package com.farma.model.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="users")
@@ -30,6 +32,9 @@ public class User {
 	@Column(name="lastname")
 	private String lastName;
 	
+	@NotNull
+	@Column(name="creat_At")
+	private Date creatAt; 
 	@OneToMany( mappedBy="user",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	public List<Ticket> tickets;
 	
@@ -74,6 +79,14 @@ public class User {
 
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
+	}
+
+	public Date getCreatAt() {
+		return creatAt;
+	}
+
+	public void setCreatAt(Date creatAt) {
+		this.creatAt = creatAt;
 	}
 	
 	

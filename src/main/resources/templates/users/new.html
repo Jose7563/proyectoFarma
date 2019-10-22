@@ -22,12 +22,14 @@
 					<div class="form-group">
 						<label for="name">Name</label> <input type="text"
 							class="form-control" id="name" aria-describedby="name"
-							th:field="*{name}">
+							th:field="*{name}"/>
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
 					</div>
 					<div class="form-group">
-						<label for="lastname">LastName</label> <input type="textl"
+						<label for="lastname">LastName</label> <input type="text"
 							class="form-control" id="lastname" aria-describedby="lasname"
 							th:field="*{lastName}" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small>
 					</div>
 					
 					<a th:href="@{/users}" class="btn btn-primary">Regresar</a>
