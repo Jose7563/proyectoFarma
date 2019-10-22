@@ -12,7 +12,7 @@ import com.farma.model.entity.Provider;
 import com.farma.service.ProviderService;
 
 @Controller
-@RequestMapping("providers")
+@RequestMapping("/providers")
 public class ProviderController {
 	@Autowired
 	private ProviderService providerService; 
@@ -22,27 +22,27 @@ public class ProviderController {
 		model.addAttribute("titulo", "Mantenimiento de proveedor");
 		model.addAttribute("providers" , providerService.getAll());
 		
-		return "categories/list";
+		return "providers/list";
 	}
 	
 	@GetMapping("/new")
     public String newProviderForm(Model model) {
 		Provider provider = new Provider();
 		
-        model.addAttribute("category", provider);
+        model.addAttribute("provider", provider);
         return "providers/new";
     }
 	
 	@PostMapping("/save")
     public String saveNewProvider(Provider provider) {
         long id = providerService.create(provider);
-        return "redirect:/provider";
+        return "redirect:/providers";
     }
 	@GetMapping("/edit/{id}")
     public String editProviderForm(@PathVariable("id") long id, Model model) {
         Provider provider = providerService.getOneById(id);  
         System.out.println(provider.getName());
-        model.addAttribute("category", provider);
+        model.addAttribute("provider", provider);
         return "providers/edit";
     }
 	

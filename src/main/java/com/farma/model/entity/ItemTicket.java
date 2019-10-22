@@ -42,7 +42,7 @@ public class ItemTicket {
 	//Method Calculate Amount 
 	
 	public Double calculateAmount() {
-		return this.quantity.doubleValue() * product.getUnit_price();
+		return this.quantity.doubleValue() * product.getUniPrice();
 	}
 	
 	

@@ -103,11 +103,7 @@ public class Ticket {
 		this.items = items;
 	}
 	
-	
-//	
-//	@NotEmpty
-//	@Column(name="cantidad")
-//	private Long cantidad; 
+
 	
 	
 	

@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -37,19 +38,19 @@ public class Product {
 	@Column(name = "ubication")
 	private String ubication;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "quantity")
 	private Long quantity;
 	
-	@NotEmpty
+	
 	@Temporal(value = TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name = "expiration_date")
-	private Date expiration_date;
+	private Date expirationDate;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "unit_price")
-	private Double  unit_price;
+	private Double  uniPrice;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id")
@@ -74,101 +75,84 @@ public class Product {
 	
 	@PrePersist
 	public void prePersist() {
-		expiration_date = new Date();
+		expirationDate = new Date();
 	}
-
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public String getUbication() {
 		return ubication;
 	}
 
-
 	public void setUbication(String ubication) {
 		this.ubication = ubication;
 	}
-
 
 	public Long getQuantity() {
 		return quantity;
 	}
 
-
 	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 
-
-	public Date getExpiration_date() {
-		return expiration_date;
+	public Date getExpirationDate() {
+		return expirationDate;
 	}
 
-
-	public void setExpiration_date(Date expiration_date) {
-		this.expiration_date = expiration_date;
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 
-
-	public Double getUnit_price() {
-		return unit_price;
+	public Double getUniPrice() {
+		return uniPrice;
 	}
 
-
-	public void setUnit_price(Double unit_price) {
-		this.unit_price = unit_price;
+	public void setUniPrice(Double uniPrice) {
+		this.uniPrice = uniPrice;
 	}
-
 
 	public Category getCategory() {
 		return category;
 	}
 
-
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
 
 	public List<Provider> getProviders() {
 		return providers;
 	}
 
-
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
 	}
-
 
 	public List<Order> getOrders() {
 		return orders;
 	}
 
-
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}	
-	
-	
+	}
+
+
+
+
 
 	
 	

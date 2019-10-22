@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" />
+<title>List Category</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+
+	<div class="container py-4">
+		<div class="card  border border-primary bg-light ">
+
+			<div class="card-header">
+				<h3 class="text-center"> Listado de Productos</h3>
+				
+			</div>
+			<div class="card-body ">
+				<a th:href="@{/products/new}" class="btn btn-primary">Nuevo</a>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th>Name</th>
+							<th>Ubicacion</th>
+							<th>Cantidad</th>
+							<th>Fecha de expiracion</th>
+							<th>Precio untario</th>
+							<th>Categoria</th>
+							<th>Proveedor</th>
+							<th>Ver</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${products}">
+
+							<td th:text="${product.id}"></td>
+							<td th:text="${product.name}"></td>
+							<td th:text="${product.ubication}"></td>
+							<td th:text="${product.quantity}"></td>
+							<td th:text="${product.expirationDate}"></td>
+							<td th:text="${product.unitPrice}"></td>
+							<td><th:block th:each="category : ${product.categories}">
+									<span th:text="${category.name} + ' '"></span>
+								</th:block>
+							</td>
+							<td><th:block th:each="provider : ${product.providers}">
+									<span th:text="${provider.name} + ' '"></span>
+								</th:block>
+							</td>
+							<td><a th:href="@{'/products/edit/'+ ${product.id}}"
+								class="btn btn-success">Editar</a></td>
+							<td><a th:href="@{'/products/delete/' + ${product.id}}"
+								class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

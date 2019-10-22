@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -30,13 +31,13 @@ public class Provider {
 	@Column(name="email")
 	 private String email;
 	
-	@NotEmpty
+	@NotNull
 //	@Size(min=9, message = "El celular debe tener 9 digitos")
 	@Column(name="phone")
 	 private Long phone; 
 	
 //	@Size(min = 11 ,message = "EL valor del ruc  ingresado debe tener 11 digitos")
-	@NotEmpty
+	@NotNull
 	@Column(name="ruc")
 	 private Long ruc;
 	
@@ -49,7 +50,7 @@ public class Provider {
 	}
 
 	public Provider(Long id, String name, String email, Long phone, Long ruc, List<Product> products) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.email = email;

@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService{
 		
 		Product p = getOneById(id);
 		p.setCategory(entity.getCategory());
-		p.setExpiration_date(entity.getExpiration_date());
+		p.setExpirationDate(entity.getExpirationDate());
 		p.setName(entity.getName());
 		p.setOrders(entity.getOrders());
 		p.setProviders(entity.getProviders());
