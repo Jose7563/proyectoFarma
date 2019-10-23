@@ -17,7 +17,7 @@ public class UserServiceImpl  implements  UserService{
 	@Override
 	public List<User> getAll() {
 		// TODO Auto-generated method stub
-		return userRespository.findAll();
+		return  userRespository.findAll();
 	}
 
 	@Override
@@ -51,5 +51,6 @@ public class UserServiceImpl  implements  UserService{
 	public void delete(Long id) {
 		userRespository.deleteById(id);
 	}
+	
 
 }

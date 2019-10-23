@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.farma.model.entity.Provider;
+import com.farma.model.entity.User;
 import com.farma.service.ProviderService;
 
 @Controller
@@ -52,7 +53,13 @@ public class ProviderController {
 		providerService.update(id, provider);
         return "redirect:/providers";    
     }
-	
+	@GetMapping("/delete/{id}")
+	private String deleteProviders(@PathVariable("id") long id, User user) {
+		if(id>0) {
+			providerService.delete(id);
+		}
+		  return "redirect:/providers";
+	}
 	
 
 }

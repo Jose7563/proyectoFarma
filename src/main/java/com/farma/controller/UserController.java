@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
 import com.farma.model.entity.User;
 import com.farma.service.UserService;
 
 @Controller
+@SessionAttributes("user")
 @RequestMapping("/users")
 public class UserController {
 	
@@ -36,13 +40,15 @@ public class UserController {
     }
 	
 	@PostMapping("/save")
-    public String saveNewUser(@Validated User user ,BindingResult result) {
+    public String saveNewUser(@Validated User user ,BindingResult result,SessionStatus status) {
 		
 		if(result.hasErrors()) {
 			return "users/new";
 		}
 		
         long id = userService.create(user);
+        status.setComplete();
+        
         return "redirect:/users";
     }
 	@GetMapping("/edit/{id}")
@@ -59,6 +65,14 @@ public class UserController {
 		userService.update(id, user);
         return "redirect:/users";    
     }
+	
+	@GetMapping("/delete/{id}")
+	private String deleteUser(@PathVariable("id") long id, User user) {
+		if(id>0) {
+			userService.delete(id);
+		}
+		  return "redirect:/users";
+	}
 	
 	
 

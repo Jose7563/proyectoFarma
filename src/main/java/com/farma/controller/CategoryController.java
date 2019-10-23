@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.farma.model.entity.Category;
+import com.farma.model.entity.User;
 import com.farma.service.CategoryService;
 
 @Controller
@@ -53,5 +54,11 @@ public class CategoryController {
         categoryService.update(id, category);
         return "redirect:/categories";    
     }
-	
+	@GetMapping("/delete/{id}")
+	private String deleteUser(@PathVariable("id") long id, User user) {
+		if(id>0) {
+			categoryService.delete(id);
+		}
+		  return "redirect:/categories";
+	}
 }

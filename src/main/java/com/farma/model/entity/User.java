@@ -13,8 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="users")
@@ -33,8 +37,11 @@ public class User {
 	private String lastName;
 	
 	@NotNull
+	@Temporal(value = TemporalType.DATE)
+	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name="creat_At")
 	private Date creatAt; 
+	
 	@OneToMany( mappedBy="user",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	public List<Ticket> tickets;
 	
