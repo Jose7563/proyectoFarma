@@ -47,6 +47,8 @@ public class Ticket {
 	public Ticket() {
 		this.items=new ArrayList<ItemTicket>();
 	}
+	
+
 
 
 	@PrePersist

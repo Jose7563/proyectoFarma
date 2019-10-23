@@ -47,14 +47,16 @@ public class User {
 	
 	
 	//Metethod addTicket
+	public void addTicket(Ticket ticket) {
+		tickets.add(ticket);
+	}
+	
 	
 	public User() {
 		tickets = new ArrayList<Ticket>();
 	}
 
-	public void addTicket(Ticket ticket) {
-		tickets.add(ticket);
-	}
+	
 
 	public Long getId() {
 		return id;

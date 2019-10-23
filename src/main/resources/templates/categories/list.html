@@ -33,7 +33,7 @@
 							<td><a th:href="@{'/categories/edit/'+ ${category.id}}"
 								class="btn btn-success">Editar</a></td>
 							<td><a th:href="@{'/categories/delete/' + ${category.id}}"
-								class="btn btn-danger">Eliminar</a></td>
+								class="btn btn-danger" onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
 					</tbody>
 				</table>

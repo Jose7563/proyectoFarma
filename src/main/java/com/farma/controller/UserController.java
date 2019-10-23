@@ -22,7 +22,16 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService; 
-	
+	 @GetMapping("/ver/{id}")
+	 public String ver(@PathVariable Long id, Model model) {
+		 User user= userService.getOneById(id);
+		 if(user == null) {
+			 return "redirect:/users";
+		 }
+		 model.addAttribute("user", user);
+		 model.addAttribute("titulo", "Detalle de cliente " + user.getName());
+		 return "users/ver";
+	 }
 	@GetMapping
 	public String list(Model model) {
 		model.addAttribute("titulo", "Mantenimiento de Ususario");

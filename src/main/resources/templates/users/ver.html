@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8" />
+<title>Ver user</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+
+	<div class="container py-4">
+		<div class="card">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<ul class="list-group">
+					<li class="list-group-item" th:text="${user.name}"></li>
+					<li class="list-group-item" th:text="${user.lastName}"></li>
+					<li class="list-group-item" th:text="${user.creatAt}"></li>
+
+				</ul>
+
+
+			</div>
+
+			<div class="alert alert-info my-4"
+				th:text="'EL empleado ' +${user.name}+' '+ ${user.lastName} + ' no ha realizado ningun venta'"></div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+</html>

@@ -27,14 +27,14 @@
 					<tbody>
 						<tr th:each="user :${users}">
 
-							<td th:text="${user.id}"></td>
+							<td> <a  class="btn btn-primary btn-xs" th:href="@{'/users/ver/'+ ${user.id}}" th:text="${user.id}" ></a></td>
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.lastName}"></td>
 							<td th:text="${user.creatAt}"></td>
 							<td><a th:href="@{'/users/edit/'+ ${user.id}}"
 								class="btn btn-success">Editar</a></td>
 							<td><a th:href="@{'/users/delete/' + ${user.id}}"
-								class="btn btn-danger">Eliminar</a></td>
+								class="btn btn-danger"  onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
 					</tbody>
 				</table>
