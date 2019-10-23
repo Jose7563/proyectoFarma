@@ -40,6 +40,7 @@ public class CategoryController {
         long id = categoryService.create(category);
         return "redirect:/categories";
     }
+	
 	@GetMapping("/edit/{id}")
     public String editCategoryForm(@PathVariable("id") long id, Model model) {
         Category category = categoryService.getOneById(id);

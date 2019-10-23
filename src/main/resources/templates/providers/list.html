@@ -17,13 +17,15 @@
 			<div class="card-body ">
 				<a th:href="@{/providers/new}" class="btn btn-primary">Nuevo</a>
 				<table class="table table-striped ">
-					<thead>
+					<thead class="bg-dark text-white">
 						<tr>
-							<th scope="col">#</th>
+							<th scope="col">Id</th>
 							<th>Nombre</th>
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Ruc</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
 					</thead>
 					<tbody>
 						<tr th:each="provider :${providers}">

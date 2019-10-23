@@ -18,11 +18,13 @@
 			<div class="card-body ">
 				<a th:href="@{/categories/new}" class="btn btn-primary">Nuevo</a>
 				<table class="table table-striped ">
-					<thead>
+					<thead class="bg-dark text-white">
 						<tr>
 							<th>Id</th>
 							<th>Nombre</th>
 							<th>Descripcion</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
 					</thead>
 					<tbody>
 						<tr th:each="category :${categories}">

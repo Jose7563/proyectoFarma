@@ -41,7 +41,7 @@ public class User {
 	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name="creat_At")
 	private Date creatAt; 
-	
+
 	@OneToMany( mappedBy="user",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	public List<Ticket> tickets;
 	

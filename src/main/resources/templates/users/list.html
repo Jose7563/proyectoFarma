@@ -16,13 +16,15 @@
 			</div>
 			<div class="card-body ">
 				<a th:href="@{/users/new}" class="btn btn-primary">Nuevo</a>
-				<table class="table table-striped ">
-					<thead>
+				<table class="table table-striped  ">
+					<thead class="bg-dark text-white">
 						<tr>
-							<th scope="col">#</th>
+							<th scope="col">Id</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
 							<th>Fecha de Ingreso</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
 					</thead>
 					<tbody>
 						<tr th:each="user :${users}">
