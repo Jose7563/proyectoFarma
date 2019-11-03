@@ -15,7 +15,7 @@
 				<h3 class="text-center" th:text="${titulo}"></h3>
 			</div>
 			<div class="card-body ">
-				<a th:href="@{/users/new}" class="btn btn-primary">Nuevo</a>
+				<a th:href="@{/employees/new}" class="btn btn-primary">Nuevo</a>
 				<table class="table table-striped  ">
 					<thead class="bg-dark text-white">
 						<tr>
@@ -27,15 +27,15 @@
 							<th>Eliminar</th>
 					</thead>
 					<tbody>
-						<tr th:each="user :${users}">
+						<tr th:each="employee :${employees}">
 
-							<td> <a  class="btn btn-primary btn-xs" th:href="@{'/users/ver/'+ ${user.id}}" th:text="${user.id}" ></a></td>
-							<td th:text="${user.name}"></td>
-							<td th:text="${user.lastName}"></td>
-							<td th:text="${user.creatAt}"></td>
-							<td><a th:href="@{'/users/edit/'+ ${user.id}}"
+							<td> <a  class="btn btn-primary btn-xs" th:href="@{'/employees/ver/'+ ${employee.id}}" th:text="${employee.id}" ></a></td>
+							<td th:text="${employee.name}"></td>
+							<td th:text="${employee.lastName}"></td>
+							<td th:text="${employee.creatAt}"></td>
+							<td><a th:href="@{'/employees/edit/'+ ${employee.id}}"
 								class="btn btn-success">Editar</a></td>
-							<td><a th:href="@{'/users/delete/' + ${user.id}}"
+							<td><a th:href="@{'/employees/delete/' + ${employee.id}}"
 								class="btn btn-danger"  onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
 					</tbody>

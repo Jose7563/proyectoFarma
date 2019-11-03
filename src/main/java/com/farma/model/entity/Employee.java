@@ -21,8 +21,8 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="employees")
+public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +42,7 @@ public class User {
 	@Column(name="creat_At")
 	private Date creatAt; 
 
-	@OneToMany( mappedBy="user",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany( mappedBy="employee",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	public List<Ticket> tickets;
 	
 	
@@ -52,7 +52,7 @@ public class User {
 	}
 	
 	
-	public User() {
+	public Employee() {
 		tickets = new ArrayList<Ticket>();
 	}
 

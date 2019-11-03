@@ -36,7 +36,7 @@ public class Ticket {
 	private Date creatAt;
 	
 	@ManyToOne(fetch= FetchType.LAZY)
-	private User user;
+	private Employee employee;
 	
 	@OneToMany(fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="ticket_id")
@@ -91,13 +91,20 @@ public class Ticket {
 		this.creatAt = creatAt;
 	}
 
-	public User getUser() {
-		return user;
+	
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+
+
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
+
+
+
 
 	public List<ItemTicket> getItems() {
 		return items;

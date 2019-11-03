@@ -13,9 +13,9 @@
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 				<ul class="list-group">
-					<li class="list-group-item" th:text="${user.name}"></li>
-					<li class="list-group-item" th:text="${user.lastName}"></li>
-					<li class="list-group-item" th:text="${user.creatAt}"></li>
+					<li class="list-group-item" th:text="${employee.name}"></li>
+					<li class="list-group-item" th:text="${employee.lastName}"></li>
+					<li class="list-group-item" th:text="${employee.creatAt}"></li>
 
 				</ul>
 
@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="alert alert-info my-4"
-				th:text="'EL empleado ' +${user.name}+' '+ ${user.lastName} + ' no ha realizado ningun venta'"></div>
+				th:text="'EL empleado ' +${employee.name}+' '+ ${employee.lastName} + ' no ha realizado ningun venta'"></div>
 		</div>
 	</div>
 

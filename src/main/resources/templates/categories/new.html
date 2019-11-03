@@ -13,6 +13,12 @@
 			<div class="card-header">Registrar Categoria</div>
 			<div class="card-body">
 
+				<div th:object="${category}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-info">
+						<li th:each="err:${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
+
 				<form th:object="${category}" th:action="@{/categories/save}"
 					th:method="post">
 					<div class="form-group">

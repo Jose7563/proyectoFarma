@@ -14,7 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.farma.model.entity.Category;
-import com.farma.model.entity.User;
+import com.farma.model.entity.Employee;
 import com.farma.service.CategoryService;
 
 @Controller
@@ -72,7 +72,7 @@ public class CategoryController {
     }
 	
 	@GetMapping("/delete/{id}")
-	private String deleteUser(@PathVariable("id") long id, User user
+	private String deleteUser(@PathVariable("id") long id, Employee user
 			, RedirectAttributes flash) {
 		if(id>0) {
 			categoryService.delete(id);

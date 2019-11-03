@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout :: head">
 <meta charset="UTF-8" />
-<title>Nuevo user</title>
+<title>Nuevo employees</title>
 </head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
@@ -13,13 +13,13 @@
 			<div class="card-header">Registrar User</div>
 			<div class="card-body">
 			
-				<div th:object="${user}" th:remove="tag">
+				<div th:object="${employee}" th:remove="tag">
 					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-info" >
 						<li th:each="err:${#fields.errors('*')}" th:text="${err}"></li>
 					</ul>
 				</div>
 
-				<form th:object="${user}" th:action="@{/users/save}"
+				<form th:object="${employee}" th:action="@{/employees/save}"
 					th:method="post">
 					<div class="form-group">
 						<input type="hidden" class="form-control" th:field="*{id}" />
@@ -46,7 +46,7 @@
 							th:if="${#fields.hasErrors('creatAt')}" th:errors="*{lastName}"></small>
 					</div>
 
-					<a th:href="@{/users}" class="btn btn-primary">Regresar</a>
+					<a th:href="@{/employees}" class="btn btn-primary">Regresar</a>
 					<button type="submit" class="btn btn-success">Guardar</button>
 				</form>
 			</div>

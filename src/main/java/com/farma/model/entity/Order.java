@@ -32,8 +32,8 @@ public class Order {
 	private Provider provider; 
 	
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
+	@JoinColumn(name="employee_id")
+	private Employee employee;
 	
 	@ManyToMany(mappedBy="orders")
 	private List<Product> products;
@@ -62,12 +62,14 @@ public class Order {
 		this.provider = provider;
 	}
 
-	public User getUser() {
-		return user;
+	
+
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
 	public List<Product> getProducts() {

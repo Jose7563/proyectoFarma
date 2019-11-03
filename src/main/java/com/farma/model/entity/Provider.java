@@ -26,19 +26,16 @@ public class Provider {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id ; 
 	
-//	@NotEmpty(message="El nombre no del proveedor no debe de estar vacio")
-	@NotNull
+	@NotEmpty(message="El nombre no del proveedor no debe de estar vacio")
 	@Column(name="name")
 	 private String name; 
 	
-//	@NotNull(message="provider.email.empty")
-	@NotNull
+	@NotNull(message="El email no puede ser nullo")
 	@Email
 	@Column(name="email")
 	 private String email;
 	
-	@NotNull
-//	@Min(value=9)
+	@NotNull(message="El campo deltelefono no pude estar vacio")
 	@Column(name="phone")
 	 private Long phone; 
 	

@@ -12,7 +12,7 @@
 			<div class="card-header">Actualizar Farmaceutico</div>
 			<div class="card-body">
 
-				<form th:object="${user}"  th:action="@{/users/update/{id}(id=${user.id})}" 
+				<form th:object="${employee}"  th:action="@{/employees/update/{id}(id=${employee.id})}" 
 					th:method="post">
 					<div class="form-group">
 						<input type="hidden" class="form-control" th:field="*{id}" />
@@ -35,7 +35,7 @@
 					</div>
 					
 					
-					<a th:href="@{/users}" class="btn btn-primary">Regresar</a>
+					<a th:href="@{/employees}" class="btn btn-primary">Regresar</a>
 					<button type="submit" class="btn btn-success">Save</button>
 				</form>
 			</div>

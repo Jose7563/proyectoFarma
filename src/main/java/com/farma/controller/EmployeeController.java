@@ -13,80 +13,80 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.farma.model.entity.User;
-import com.farma.service.UserService;
+import com.farma.model.entity.Employee;
+import com.farma.service.EmployeeService;
 
 @Controller
-@SessionAttributes("user")
-@RequestMapping("/users")
-public class UserController {
+@SessionAttributes("employee")
+@RequestMapping("/employees")
+public class EmployeeController {
 	
 	@Autowired
-	private UserService userService; 
+	private EmployeeService userService; 
 	
-	@GetMapping("/ver/{id}")
+	@GetMapping("/view/{id}")
 	 public String ver(@PathVariable Long id, Model model) {
-		 User user= userService.getOneById(id);
-		 if(user == null) {
-			 return "redirect:/users";
+		 Employee employee= userService.getOneById(id);
+		 if(employee == null) {
+			 return "redirect:/employees";
 		 }
-		 model.addAttribute("user", user);
-		 model.addAttribute("titulo", "Detalle de cliente " + user.getName());
-		 return "users/ver";
+		 model.addAttribute("employee", employee);
+		 model.addAttribute("titulo", "Detalle de cliente " + employee.getName());
+		 return "employees/view";
 	 }
 	@GetMapping
 	public String list(Model model) {
-		model.addAttribute("titulo", "Mantenimiento de Ususario");
-		model.addAttribute("users" , userService.getAll());
+		model.addAttribute("titulo", "Mantenimiento de Empleado");
+		model.addAttribute("employees" , userService.getAll());
 		
-		return "users/list";
+		return "employees/list";
 	}
 	
 	@GetMapping("/new")
     public String newUserForm(Model model) {
-		User user = new User();
+		Employee employee = new Employee();
 		
-        model.addAttribute("user", user);
-        return "users/new";
+        model.addAttribute("employee", employee);
+        return "employees/new";
     }
 	
 	@PostMapping("/save")
-    public String saveNewUser(@Validated User user ,BindingResult result,RedirectAttributes flash,SessionStatus status) {
+    public String saveNewUser(@Validated Employee employee ,BindingResult result,RedirectAttributes flash,SessionStatus status) {
 		
 		if(result.hasErrors()) {
-			return "users/new";
+			return "employees/new";
 		}
 		
-        long id = userService.create(user);
+        long id = userService.create(employee);
         status.setComplete();
         flash.addFlashAttribute("success", "Empleado creado con exito");
         
-        return "redirect:/users";
+        return "redirect:/employees";
     }
 	@GetMapping("/edit/{id}")
     public String editUserForm(@PathVariable("id") long id, Model model) {
-        User user = userService.getOneById(id);  
-        System.out.println(user.getName());
-        model.addAttribute("user", user);
-        return "users/edit";
+        Employee employee = userService.getOneById(id);  
+        System.out.println(employee.getName());
+        model.addAttribute("employee", employee);
+        return "employees/edit";
     }
 	
 	
 	@PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id, User user, RedirectAttributes flash) {
-		userService.update(id, user);
+    public String updateUser(@PathVariable("id") long id, Employee employee, RedirectAttributes flash) {
+		userService.update(id, employee);
 		flash.addFlashAttribute("success", "Empleado actualizado con exito"); 
 		
-        return "redirect:/users";    
+        return "redirect:/employees";    
     }
 	
 	@GetMapping("/delete/{id}")
-	private String deleteUser(@PathVariable("id") long id, User user, RedirectAttributes flash) {
+	private String deleteUser(@PathVariable("id") long id, Employee employee, RedirectAttributes flash) {
 		if(id>0) {
 			userService.delete(id);
 			flash.addFlashAttribute("success", "Empleado eliminado con exito");
 		}
-		  return "redirect:/users";
+		  return "redirect:/employees";
 	}
 	
 	

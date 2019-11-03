@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.farma.model.entity.Category;
 import com.farma.model.entity.Product;
 import com.farma.model.entity.Provider;
-import com.farma.model.entity.User;
+import com.farma.model.entity.Employee;
 import com.farma.service.CategoryService;
 import com.farma.service.ProductService;
 import com.farma.service.ProviderService;

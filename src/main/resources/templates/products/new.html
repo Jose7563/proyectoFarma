@@ -9,16 +9,21 @@
 
 
 	<div class="container py-4">
-		<div class="card" >
+		<div class="card">
 			<div class="card-header">Registrar Producto</div>
 			<div class="card-body">
+				<div th:object="${product}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-info">
+						<li th:each="err:${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
 
 				<form th:object="${product}" th:action="@{/products/save}"
 					th:method="post">
 					<div class="form-group">
 						<input type="hidden" class="form-control" th:field="*{id}" />
 					</div>
-					
+
 					<div class="form-group">
 						<label for="name">Name</label> <input type="text"
 							class="form-control" id="name" aria-describedby="name"
@@ -35,9 +40,9 @@
 							th:field="*{quantity}" />
 					</div>
 					<div class="form-group">
-						<label for="expirationDatec">Fecha expiracion</label> <input type="text"
-							class="form-control" id="expirationDate" aria-describedby="expirationDate"
-							th:field="*{expirationDate}" />
+						<label for="expirationDatec">Fecha expiracion</label> <input
+							type="text" class="form-control" id="expirationDate"
+							aria-describedby="expirationDate" th:field="*{expirationDate}" />
 					</div>
 					<div class="form-group">
 						<label for="unitPrice">Precio Unitario</label> <input type="text"
@@ -51,7 +56,7 @@
 								th:text="${category.name}" th:value="${category.id}"></option>
 						</select>
 					</div>
-						
+
 					<div class="form-group">
 						<label for="provider">Proveedor</label> <select id="provider"
 							class="form-control" th:field="*{providers}" multiple="multiple">

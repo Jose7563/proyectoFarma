@@ -3,31 +3,33 @@ package com.farma.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.farma.model.entity.User;
-import com.farma.model.repository.UserRepository;
-import com.farma.service.UserService;
+import com.farma.model.entity.Employee;
+import com.farma.model.repository.EmployeeRepository;
+import com.farma.service.EmployeeService;
 @Service
-public class UserServiceImpl  implements  UserService{
+public class EmployeeServiceImpl  implements  EmployeeService{
 	
 	@Autowired
-	private UserRepository userRespository;
+	private EmployeeRepository userRespository;
 
 	@Override
-	public List<User> getAll() {
+	public List<Employee> getAll() {
 		// TODO Auto-generated method stub
-		return  userRespository.findAll();
+		return  (List<Employee>) userRespository.findAll();
 	}
 
 	@Override
-	public User getOneById(Long id) {
+	public Employee getOneById(Long id) {
 		return userRespository.findById(id)
 				.orElseThrow(() -> new RuntimeException("User Not Found!"));
 	}
 
 	@Override
-	public Long create(User entity) {
+	public Long create(Employee entity) {
 		// TODO Auto-generated method stub
 		userRespository.save(entity);
 		
@@ -35,9 +37,9 @@ public class UserServiceImpl  implements  UserService{
 	}
 
 	@Override
-	public void update(Long id, User entity) {
+	public void update(Long id, Employee entity) {
 		
-		User u = getOneById(id); 
+		Employee u = getOneById(id); 
 		u.setLastName(entity.getLastName());
 		u.setName(entity.getName());
 		u.setCreatAt(entity.getCreatAt());
@@ -51,6 +53,14 @@ public class UserServiceImpl  implements  UserService{
 	public void delete(Long id) {
 		userRespository.deleteById(id);
 	}
+
+	@Override
+	public Page<Employee> findAll(Pageable pageable) {
+		return userRespository.findAll(pageable);
+	}
+	
+	
+	
 	
 
 }
