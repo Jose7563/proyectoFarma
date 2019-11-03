@@ -30,7 +30,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id ;
 	
-	@NotEmpty
+	@NotEmpty()
 	@Column(name = "name")
 	private String name; 
 	

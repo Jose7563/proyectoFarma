@@ -22,12 +22,12 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id ; 
 	
-	@NotEmpty
+	@NotEmpty(message="El nombre no puede estar vacio")
 	@Column(name="name")
 	private String name; 
 	
 	@Lob
-	@NotEmpty
+	@NotEmpty(message="El campo no puede de descripcion no puede estar  vacio")
 	@Type(type = "org.hibernate.type.TextType")
 	@Column(name="description")
 	private String description;

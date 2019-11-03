@@ -10,8 +10,11 @@ import javax.persistence.Id;
 
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 
 
 @Entity
@@ -23,21 +26,25 @@ public class Provider {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id ; 
 	
-	@NotEmpty
+//	@NotEmpty(message="El nombre no del proveedor no debe de estar vacio")
+	@NotNull
 	@Column(name="name")
 	 private String name; 
 	
-	@NotEmpty
+//	@NotNull(message="provider.email.empty")
+	@NotNull
+	@Email
 	@Column(name="email")
 	 private String email;
 	
 	@NotNull
-//	@Size(min=9, message = "El celular debe tener 9 digitos")
+//	@Min(value=9)
 	@Column(name="phone")
 	 private Long phone; 
 	
-//	@Size(min = 11 ,message = "EL valor del ruc  ingresado debe tener 11 digitos")
+	
 	@NotNull
+	@Min(11)
 	@Column(name="ruc")
 	 private Long ruc;
 	

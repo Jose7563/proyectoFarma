@@ -3,16 +3,20 @@ package com.farma.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.farma.model.entity.Provider;
-import com.farma.model.entity.User;
 import com.farma.service.ProviderService;
 
 @Controller
+@SessionAttributes("providers")
 @RequestMapping("/providers")
 public class ProviderController {
 	@Autowired
@@ -35,8 +39,13 @@ public class ProviderController {
     }
 	
 	@PostMapping("/save")
-    public String saveNewProvider(Provider provider) {
+    public String saveNewProvider(@Validated Provider provider, BindingResult result,RedirectAttributes flash) {
+		
+		if(result.hasErrors()) {
+			return "providers/new";
+		}
         long id = providerService.create(provider);
+        flash.addFlashAttribute("success", "El proveedor se guardo con exito");
         return "redirect:/providers";
     }
 	@GetMapping("/edit/{id}")
@@ -49,14 +58,16 @@ public class ProviderController {
 	
 	
 	@PostMapping("/update/{id}")
-    public String updateProvider(@PathVariable("id") long id, Provider provider) {
+    public String updateProvider(@PathVariable("id") long id, Provider provider,RedirectAttributes flash) {
 		providerService.update(id, provider);
+		flash.addFlashAttribute("sucess", "El proveedor se actualizo con exito"); 
         return "redirect:/providers";    
     }
 	@GetMapping("/delete/{id}")
-	private String deleteProviders(@PathVariable("id") long id, User user) {
+	private String deleteProviders(@PathVariable("id") long id,Provider provider,RedirectAttributes flash) {
 		if(id>0) {
 			providerService.delete(id);
+			flash.addFlashAttribute("sucess","El proveedor se elimino con exito"); 
 		}
 		  return "redirect:/providers";
 	}
