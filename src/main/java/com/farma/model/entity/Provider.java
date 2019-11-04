@@ -24,6 +24,7 @@ public class Provider {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "provider_id")
 	private Long id ; 
 	
 	@NotEmpty(message="El nombre no del proveedor no debe de estar vacio")

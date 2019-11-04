@@ -25,37 +25,35 @@
 							<th>Fecha de Ingreso</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
+						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="employee :${employees}">
 
-							<td> <a  class="btn btn-primary btn-xs" th:href="@{'/employees/ver/'+ ${employee.id}}" th:text="${employee.id}" ></a></td>
+							<td><a class="btn btn-primary btn-xs"
+								th:href="@{'/employees/view/'+ ${employee.id}}"
+								th:text="${employee.id}"></a></td>
 							<td th:text="${employee.name}"></td>
 							<td th:text="${employee.lastName}"></td>
 							<td th:text="${employee.creatAt}"></td>
 							<td><a th:href="@{'/employees/edit/'+ ${employee.id}}"
 								class="btn btn-success">Editar</a></td>
 							<td><a th:href="@{'/employees/delete/' + ${employee.id}}"
-								class="btn btn-danger"  onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
+								class="btn btn-danger"
+								onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
+
 					</tbody>
+
 				</table>
+				<nav th:replace="paginator-nav :: paginator"></nav>
 			</div>
 		</div>
 
 
 	</div>
 
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<li class="page-item disabled"><a class="page-link" href="#"
-				tabindex="-1" aria-disabled="true">Previous</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">Next</a></li>
-		</ul>
-	</nav>
+
 
 	<footer th:replace="layout/layout :: footer"></footer>
 
