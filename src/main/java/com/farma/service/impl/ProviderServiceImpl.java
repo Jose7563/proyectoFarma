@@ -3,8 +3,11 @@ package com.farma.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.farma.model.entity.Employee;
 import com.farma.model.entity.Provider;
 import com.farma.model.repository.ProviderRepository;
 import com.farma.service.ProviderService;
@@ -18,7 +21,7 @@ public class ProviderServiceImpl implements ProviderService {
 	@Override
 	public List<Provider> getAll() {
 		
-		return providerRepository.findAll();
+		return (List<Provider>) providerRepository.findAll();
 	}
 
 	@Override
@@ -50,5 +53,15 @@ public class ProviderServiceImpl implements ProviderService {
 	public void delete(Long id) {
 		providerRepository.deleteById(id);
 	}
+
+	@Override
+	public Page<Provider> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return providerRepository.findAll(pageable) ;
+	}
+	
+	
+	
+	
 
 }

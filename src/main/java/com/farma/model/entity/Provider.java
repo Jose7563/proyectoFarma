@@ -23,7 +23,7 @@ public class Provider {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "provider_id")
 	private Long id ; 
 	

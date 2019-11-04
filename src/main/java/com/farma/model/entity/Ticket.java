@@ -26,11 +26,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Ticket {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ticket_id")
 	private Long id;
 	
 	
+	private String description; 
 	@Temporal(value = TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name = "creat_at")
@@ -42,15 +43,10 @@ public class Ticket {
 	@OneToMany(fetch= FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="ticket_id")
 	private List<ItemTicket> items; 
-	
-	
 
 	public Ticket() {
 		this.items=new ArrayList<ItemTicket>();
 	}
-	
-
-
 
 	@PrePersist
 	public void prePersist() {
@@ -113,6 +109,20 @@ public class Ticket {
 
 	public void setItems(List<ItemTicket> items) {
 		this.items = items;
+	}
+
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 

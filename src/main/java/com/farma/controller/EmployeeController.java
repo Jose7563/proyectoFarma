@@ -36,7 +36,7 @@ public class EmployeeController {
 			 return "redirect:/employees";
 		 }
 		 model.addAttribute("employee", employee);
-		 model.addAttribute("titulo", "Detalle de cliente " + employee.getName());
+		 model.addAttribute("titulo", "Detalle de emplado " + employee.getName());
 		 return "employees/view";
 	 }
 	@GetMapping

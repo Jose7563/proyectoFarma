@@ -38,26 +38,19 @@
 							<td><a th:href="@{'/providers/edit/'+ ${provider.id}}"
 								class="btn btn-success">Editar</a></td>
 							<td><a th:href="@{'/providers/delete/' + ${provider.id}}"
-								class="btn btn-danger" onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
+								class="btn btn-danger"
+								onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
 					</tbody>
 				</table>
+				<nav th:replace="paginator-nav :: paginator"></nav>
 			</div>
 		</div>
 
 
 	</div>
 
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<li class="page-item disabled"><a class="page-link" href="#"
-				tabindex="-1" aria-disabled="true">Previous</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">Next</a></li>
-		</ul>
-	</nav>
+
 
 	<footer th:replace="layout/layout :: footer"></footer>
 

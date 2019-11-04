@@ -24,9 +24,15 @@ INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(1,'RAMNA SAC', 'p
 INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(2,'GRUPO SAC', 'proveedor2@gmail.com', 667876534, 239876535267)
 INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(3,'ALKOFARMA SAC', 'proveedor3@gmail.com', 777876534, 345876535267)
 INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(4,'RETAIL SAC', 'proveedor4@gmail.com', 887876534, 445876535267)
-INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(5,'UNION SAC', 'proveedor5@gmail.com', 997876534, 569876535267)
+INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(5,'UNION SAC', 'proveedor5@gmail.com', 997873426, 569876535267)
+INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(6,'URION SAC', 'proveedor6@gmail.com', 997876536, 569876535267)
+INSERT INTO providers(provider_id,name,email,phone,ruc) VALUES(7,'NEZTEL SAC', 'proveedor7@gmail.com', 997876664, 569876535267)
 
-INSERT INTO categories(category_id,name,description) VALUES(1,'belleza y bienestar','categoria especializada en el cuidado personal ')
+
+/*INSERT INTO categories(category_id,name,description) VALUES(1,'belleza y bienestar','categoria especializada en el cuidado personal ')
 INSERT INTO categories(category_id,name,description) VALUES(2,'farmacia y salud','categoria encargada de las pildoras y/o pastillas')
 INSERT INTO categories(category_id,name,description) VALUES(3,'mama y bebe','categoria encargada de los productos relacionados a la maternidad')
 INSERT INTO categories(category_id,name,description) VALUES(4,'vitaminas y suplementos','categoria encargada de todos los suplementos y vitaminas')
+*/
+
+INSERT INTO categories(category_id,description,name) VALUES(1,'categoria encargada de las pildoras y/o pastillas','farmacia y salud')
