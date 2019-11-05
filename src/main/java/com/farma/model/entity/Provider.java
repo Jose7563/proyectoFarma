@@ -36,12 +36,12 @@ public class Provider {
 	@Column(name="email")
 	 private String email;
 	
-	@NotNull(message="El campo deltelefono no pude estar vacio")
+	@NotNull(message="El campo del telefono no pude estar vacio")
 	@Column(name="phone")
 	 private Long phone; 
 	
 	
-	@NotNull
+	@NotNull(message="El campo ruc no puede estar vacio ")
 	@Min(11)
 	@Column(name="ruc")
 	 private Long ruc;

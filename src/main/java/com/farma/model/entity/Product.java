@@ -31,15 +31,15 @@ public class Product {
 	@Column(name = "product_id")
 	private Long id ;
 	
-	@NotEmpty()
+	@NotEmpty(message="EL campo nombre no puede estra vacio")
 	@Column(name = "name")
 	private String name; 
 	
-	@NotEmpty
+	@NotEmpty(message="El campo ubicacion no puede estra vacio")
 	@Column(name = "ubication")
 	private String ubication;
 	
-	@NotNull
+	@NotNull(message="EL campo cantidad no puede estra vacio")
 	@Column(name = "quantity")
 	private Long quantity;
 	
@@ -49,7 +49,7 @@ public class Product {
 	@Column(name = "expiration_date")
 	private Date expirationDate;
 	
-	@NotNull
+	@NotNull(message="EL campo precio no puede estra vacio")
 	@Column(name = "unit_price")
 	private Double  unitPrice;
 	

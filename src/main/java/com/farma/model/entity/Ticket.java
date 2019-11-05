@@ -42,7 +42,7 @@ public class Ticket {
 	private Employee employee;
 	
 	@OneToMany(fetch= FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="ticket_id")
+	
 	private List<ItemTicket> items; 
 
 	public Ticket() {
