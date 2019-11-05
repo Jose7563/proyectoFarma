@@ -36,3 +36,6 @@ INSERT INTO categories(category_id,name,description) VALUES(4,'vitaminas y suple
 */
 
 INSERT INTO categories(category_id,description,name) VALUES(1,'categoria encargada de las pildoras y/o pastillas','farmacia y salud')
+
+
+/*INSERT INTO products (product_id, name, ubication, quantity,unit_price, expiration_date,categories,providers) VALUES(1,'Ibuprofeno','Stand-1',23,23,'2019-09-18','farmacia y salud','RAMNA SAC')*/

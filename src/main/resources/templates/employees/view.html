@@ -16,15 +16,41 @@
 					<li class="list-group-item" th:text="${employee.name}"></li>
 					<li class="list-group-item" th:text="${employee.lastName}"></li>
 					<li class="list-group-item" th:text="${employee.creatAt}"></li>
-
 				</ul>
-
-
 			</div>
 
-			<div class="alert alert-info my-4"
-				th:text="'El empleado ' +${employee.name}+' '+ ${employee.lastName} + ' no ha realizado ningun venta'"></div>
+			<div th:if="${#lists.isEmpty(employee.tickets)}"
+				class="alert alert-info my-4"
+				th:text="'No hay facturas asignadas para el empleado ' + ${employee.name}+ ' ' + ${employee.lastName}"></div>
+			<table th:if="${not #lists.isEmpty(employee.tickets)}"
+				class="table table-bordered table-striped my-4">
+				<thead class="thead-inverse">
+					<tr>
+						<th>Folio</th>
+						<th>descripcion</th>
+						<th>fecha</th>
+						<th>total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each=" ticket : ${employee.tickets}">
+						<td th:text="${ticket.id}"></td>
+						<td th:text="${ticket.description}"></td>
+						<td th:text="${ticket.creatAt}"></td>
+						<td th:text="${ticket.total}"></td>
+						<td></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+
+
 		</div>
+
+
+
+
 	</div>
 
 	<footer th:replace="layout/layout :: footer"></footer>

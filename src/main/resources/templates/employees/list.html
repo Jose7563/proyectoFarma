@@ -23,6 +23,7 @@
 							<th>Nombre</th>
 							<th>Apellido</th>
 							<th>Fecha de Ingreso</th>
+							<th>Crear Factura</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
 						</tr>
@@ -36,6 +37,7 @@
 							<td th:text="${employee.name}"></td>
 							<td th:text="${employee.lastName}"></td>
 							<td th:text="${employee.creatAt}"></td>
+							<td><a th:href="@{'/tickets/form'+${employee.id}}" >Crear Factura</a></td>
 							<td><a th:href="@{'/employees/edit/'+ ${employee.id}}"
 								class="btn btn-success">Editar</a></td>
 							<td><a th:href="@{'/employees/delete/' + ${employee.id}}"

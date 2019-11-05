@@ -32,6 +32,7 @@ public class Ticket {
 	
 	
 	private String description; 
+	
 	@Temporal(value = TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-mm-yy")
 	@Column(name = "creat_at")
@@ -87,22 +88,13 @@ public class Ticket {
 	public void setCreatAt(Date creatAt) {
 		this.creatAt = creatAt;
 	}
-
-	
 	public Employee getEmployee() {
 		return employee;
 	}
 
-
-
-
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-
-
-
-
 	public List<ItemTicket> getItems() {
 		return items;
 	}
@@ -111,16 +103,9 @@ public class Ticket {
 		this.items = items;
 	}
 
-
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
-
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
