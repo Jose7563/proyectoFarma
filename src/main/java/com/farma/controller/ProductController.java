@@ -86,8 +86,9 @@ public class ProductController {
 	
 	
 	@PostMapping("/update/{id}")
-    public String updateProduct(@PathVariable("id") long id, Product product) {
+    public String updateProduct(@PathVariable("id") long id, Product product,RedirectAttributes flash) {
         productService.update(id, product);
+        flash.addFlashAttribute("success", "El producto actualizado con exito"); 
         return "redirect:/products";    
     }
 	
