@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -49,7 +48,7 @@ public class Product {
 	@Column(name = "expiration_date")
 	private Date expirationDate;
 	
-	@NotNull(message="EL campo precio no puede estra vacio")
+	@NotNull(message="EL campo precio no puede estar vacio")
 	@Column(name = "unit_price")
 	private Double  unitPrice;
 	

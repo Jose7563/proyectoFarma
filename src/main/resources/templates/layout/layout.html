@@ -29,8 +29,8 @@
 								aria-haspopup="true" aria-expanded="false">Categoria</a>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/categories}">Listado
-									de Categoria</a>
+								<a class="dropdown-item" th:href="@{/categories}">Listado de
+									Categoria</a>
 							</div>
 						</div>
 					</li>
@@ -41,8 +41,8 @@
 								aria-haspopup="true" aria-expanded="false">Proveedor</a>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/providers}">Listado
-									de Prodveedor</a>
+								<a class="dropdown-item" th:href="@{/providers}">Listado de
+									Prodveedor</a>
 							</div>
 						</div>
 					</li>
@@ -53,12 +53,12 @@
 								aria-haspopup="true" aria-expanded="false">Producto</a>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/products}">Listado
-									de Producto</a> 
+								<a class="dropdown-item" th:href="@{/products}">Listado de
+									Producto</a>
 							</div>
 						</div>
 					</li>
-					
+
 					<li class="nav-item">
 						<div class="dropdown">
 							<a class="btn btn-light dropdown-toggle" href="#" role="button"
@@ -66,28 +66,47 @@
 								aria-haspopup="true" aria-expanded="false">Empleado</a>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/employees}">Listado
-									de Empleado</a>
+								<a class="dropdown-item" th:href="@{/employees}">Listado de
+									Empleado</a>
 							</div>
 						</div>
 
 					</li>
 					
-					<li class="dropdown nav-item"><a th:href="@{/logout}"
-					class="nav-link" > <i
-						class="material-icons">apps</i> Sign Out
-				</a></li>
+					<li class="dropdown nav-item">
+					<a th:href="@{/logout}"
+						class="nav-link">
+						 <i class="material-icons"></i> Sign Out
+					</a></li>
+
+
 				</ul>
 			</div>
 		</nav>
-		
-		<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
-		<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
-		<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
-		<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
-		
-		
+
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+
+
 	</header>
+
+
+<!-- 	<header th:fragment="header_two"> -->
+
+<!-- 		<nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+<!-- 			<div class="collapse navbar-collapse" id="navbarNav"> -->
+<!-- 				<ul class="navbar-nav"> -->
+					
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 		</nav> -->
+<!-- 	</header> -->
 
 
 	<footer th:fragment="footer" class="bg-light">

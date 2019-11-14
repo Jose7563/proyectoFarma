@@ -11,7 +11,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -42,7 +41,6 @@ public class Ticket {
 	private Employee employee;
 	
 	@OneToMany(fetch= FetchType.LAZY,cascade=CascadeType.ALL)
-	
 	private List<ItemTicket> items; 
 
 	public Ticket() {
@@ -55,7 +53,7 @@ public class Ticket {
 	}
 
 	
-	//Mehid AddItemTicket
+	//Method AddItemTicket
 	
 	public void addItemTicket (ItemTicket item) {
 		this.items.add(item);

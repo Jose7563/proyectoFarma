@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.farma.model.entity.Employee;
-import com.farma.model.entity.Provider;
 import com.farma.model.entity.Ticket;
 import com.farma.service.EmployeeService;
 
@@ -41,14 +40,14 @@ public class TicketControlller {
      model.addAttribute("titulo", "Crear TICKET");
         return "tickets/new";
     }
-//	@PostMapping("/save")
-//    public String saveNewProvider(@Validated Provider provider) {
-//		
-//		if(result.hasErrors()) {
-//			return "providers/new";
-//		}
+	@PostMapping("/save")
+    public String saveNewTicket(@Validated Ticket ticket ,  BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "tickets/form";
+		}
 //        long id = providerService.create(provider);
-//     
-//        return "redirect:/providers";
-//    }
+     
+        return "redirect:/providers";
+    }
 }

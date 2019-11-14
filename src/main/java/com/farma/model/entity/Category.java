@@ -28,7 +28,7 @@ public class Category {
 	private String name; 
 	
 	@Lob
-	@NotEmpty(message="El campo no puede de descripcion no puede estar  vacio")
+	@NotEmpty(message="El campo de descripcion no puede estar  vacio")
 	@Type(type = "org.hibernate.type.TextType")
 	@Column(name="description")
 	private String description;
