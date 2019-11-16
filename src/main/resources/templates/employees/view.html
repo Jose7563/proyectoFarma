@@ -22,6 +22,9 @@
 			<div th:if="${#lists.isEmpty(employee.tickets)}"
 				class="alert alert-info my-4"
 				th:text="'No hay facturas asignadas para el empleado ' + ${employee.name}+ ' ' + ${employee.lastName}"></div>
+		    
+		    
+		
 			<table th:if="${not #lists.isEmpty(employee.tickets)}"
 				class="table table-bordered table-striped my-4">
 				<thead class="thead-inverse">

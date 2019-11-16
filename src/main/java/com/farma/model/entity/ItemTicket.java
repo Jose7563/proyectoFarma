@@ -21,7 +21,25 @@ public class ItemTicket {
 	@JoinColumn(name="product_id")
 	private Product product; 
 	
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Integer getUnitCost() {
+		return unitCost;
+	}
+
+	public void setUnitCost(Integer unitCost) {
+		this.unitCost = unitCost;
+	}
+
 	private Integer quantity;
+	
+	private Integer unitCost;
 
 
 	

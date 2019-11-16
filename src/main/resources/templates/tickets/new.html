@@ -2,44 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout :: head">
 <meta charset="UTF-8" />
-<title>Nuevo ticket</title>
+<title>Nuevo proveedor</title>
 </head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
 
 
-	<div class="container py-4">
-		<div class="card">
-			<div class="card-header" th:tetx="${titulo}"></div>
-			<div class="card-body">
-
-				<form th:object="${ticket}" th:action="@{/tickets/save}"
-					th:method="post">
-
-<!-- 					<div class="form-group"> -->
-<!-- 						<label class="col-sm-2 col-form-label" for="employee">Empleado</label> -->
-<!-- 						<div class="col-sm-6"> -->
-<!-- 							<input type="text" id ="employee" th:value="${ticket.employee.name} +' '+${ticket.employee.lastname}" -->
-<!-- 							class="form-control" disabled="disabled"/> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-
-					<div class="form-group">
-						<label class="col-sm-2 col-form-label" for="description">Descripcion</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="description"
-								aria-describedby="description" th:field="*{description}"/>
-						</div>
-					</div>
+	<table class="table table-striped ">
+		<thead class="bg-dark text-white">
+			<tr>
+				<th scope="col">Id</th>
+				<th>Nombre</th>
+				<th>Costo Unitario</th>
+				<th>Cantidad</th>
+		</thead>
+		<tbody>
+			<tr th:each="item :${listItem}">
+				<td>1</td>
+				<td th:text="${item.product.name}"></td>
+<!-- 				<td th:text="${item.product.unitPrice}"></td> -->
+				<td th:text="${item.quantity}"></td>
+			</tr>
+		</tbody>
+	</table>
 
 
-<!-- 					<div class="form-group"> -->
-<!-- 						<input type="submit" th:text="${titulo}" class="btn btn-success" /> -->
-<!-- 					</div> -->
-				</form>
-			</div>
-		</div>
-	</div>
+	<table class="table table-striped ">
+		<thead class="bg-dark text-white">
+			<tr>
+				<th>Id</th>
+				<th>Producto</th>
+				<th>Monto</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="row">
+				<th>1</th>
+				<th>laptop</th>
+				<th class="monto">1202</th>
+				<th class="total">4</th>
+			</tr>
+			<tr class="row">
+				<th>2</th>
+				<th>cpu</th>
+				<th class="monto">599</th>
+				<th class="total">3</th>
+			</tr>
+
+		</tbody>
+
+		<span id="costoTotal"></span>
+	</table>
 
 	<footer th:replace="layout/layout :: footer"></footer>
 

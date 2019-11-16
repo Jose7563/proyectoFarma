@@ -64,10 +64,10 @@ public class CategoryController {
 	
 	
 	@PostMapping("/update/{id}")
-    public String updateCategory(@PathVariable("id") long id, Category category,BindingResult result,RedirectAttributes flash) {
+    public String updateCategory(@PathVariable("id") long id,  @Validated Category category,BindingResult result,RedirectAttributes flash) {
         
 		if(result.hasErrors()) {
-			return "categories/edit/{id}";
+			return "redirect:/categories/edit/{id}";
 		}
 		categoryService.update(id, category);
         flash.addFlashAttribute("success", "La categoria actualizada con exito");

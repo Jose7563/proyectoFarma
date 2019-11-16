@@ -1,11 +1,20 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout :: head">
 <meta charset="UTF-8" />
-<title>List user</title>
+<title>List proveedores</title>
 </head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
+
+
+
+	<select th:field="*{listaProducts}">
+		<option value="">--</option>
+		<option th:each="country : ${listaProducts}"
+			th:value="${listaProducts.id}" th:utext="${listaProducts.name}" />
+	</select>
 
 
 	<div class="container py-4">
@@ -15,38 +24,33 @@
 				<h3 class="text-center" th:text="${titulo}"></h3>
 			</div>
 			<div class="card-body ">
-				<a th:href="@{/employees/new}" class="btn btn-primary">Nuevo</a>
-				<table class="table table-striped  ">
+				<a th:href="@{/providers/new}" class="btn btn-primary">Nuevo</a>
+				<table class="table table-striped ">
 					<thead class="bg-dark text-white">
 						<tr>
 							<th scope="col">Id</th>
 							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Fecha de Ingreso</th>
-							<th>Crear Factura</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Ruc</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
-						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="employee :${employees}">
+						<tr th:each="provider :${providers}">
 
-							<td><a class="btn btn-primary btn-xs"
-								th:href="@{'/employees/view/'+ ${employee.id}}"
-								th:text="${employee.id}"></a></td>
-							<td th:text="${employee.name}"></td>
-							<td th:text="${employee.lastName}"></td>
-							<td th:text="${employee.creatAt}"></td>
-							<td><a class="btn " th:href="@{'/tickets/form/'+${employee.id}}" >Detalle Factura</a></td>
-							<td><a  th:href="@{'/employees/edit/'+ ${employee.id}}"
+							<td th:text="${provider.id}"></td>
+							<td th:text="${provider.name}"></td>
+							<td th:text="${provider.email}"></td>
+							<td th:text="${provider.phone}"></td>
+							<td th:text="${provider.ruc}"></td>
+							<td><a th:href="@{'/providers/edit/'+ ${provider.id}}"
 								class="btn btn-success">Editar</a></td>
-							<td><a th:href="@{'/employees/delete/' + ${employee.id}}"
+							<td><a th:href="@{'/providers/delete/' + ${provider.id}}"
 								class="btn btn-danger"
 								onclick="return confirm('Estas seguro de que quieres eliminar');">Eliminar</a></td>
 						</tr>
-
 					</tbody>
-
 				</table>
 				<nav th:replace="paginator-nav :: paginator"></nav>
 			</div>
